@@ -1,0 +1,9 @@
+routine to read the file into a JSON arrays
+
+the key to each elements are the 4 consecutive characters that are unique 
+
+find all consecutive groups and count the number of occurances 
+
+find the max min and median groups
+
+output results to a file.
