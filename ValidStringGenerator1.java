@@ -9,7 +9,7 @@ public class ValidStringGenerator1 {
         //for (int i = 0; i < 100; i++) {
             String validString = generateValidString();
             System.out.println(validString);
-            writeToFile(validString); // Call the writeToFile method to save the string in "output.txt"
+            writeToFile(validString); 
         //}
     }
 
@@ -18,20 +18,20 @@ public class ValidStringGenerator1 {
         String result = ""; //initializeing an empty string
         Random random = new Random();
 
-        while (result.length() < 256) { // while loop based on string length
+        while (result.length() < 256) { //    while loop based on the string length
             char currentChar;
             boolean validCharFound = false;
 
             while (!validCharFound) {
                 currentChar = pool[random.nextInt(pool.length)];
 
-                // Check for adjacent characters within 2 positions
+                //adjacent characters within 2 indeces
                 if (result.length() >= 2 && (currentChar == result.charAt(result.length() - 1)
                         || currentChar == result.charAt(result.length() - 2))) {
                     continue;
                 }
 
-                // Check for the character 3 positions ago
+                // Check for the character 3 indeces ago
                 if (result.length() >= 3 && currentChar == result.charAt(result.length() - 3)) {
                     continue;
                 }
