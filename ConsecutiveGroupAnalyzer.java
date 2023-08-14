@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * A class for analyzing consecutive groups of characters in a written file.
+ */
 public class ConsecutiveGroupAnalyzer {
 
 	public static void main(String[] args) {
@@ -32,8 +34,13 @@ public class ConsecutiveGroupAnalyzer {
 	            System.out.println("Median Group: " + medianGroup);
 	        }
 	    }
-
-	    // read the file + find consecutive groups of a given size of 4
+    /**
+     * Reads the written file and finds consecutive groups of the given size (4) in the file.
+     *
+     * @param filePath   The path of the file to read.
+     * @param groupSize  The size of the consecutive groups to find.
+     * @return           A list of consecutive groups.
+     */
 	    public static List<String> findConsecutiveGroupsFromFile(String filePath, int groupSize) {
 	        List<String> groups = new ArrayList<>();
 	        try {
@@ -51,8 +58,14 @@ public class ConsecutiveGroupAnalyzer {
 	        }
 	        return groups;
 	    }
-	    // find consecutive groups of a given size in a single line
-	    public static List<String> findConsecutiveGroupsInLine(String line, int groupSize) {
+    /**
+     * Finds consecutive groups of a given size in a single line.
+     *
+     * @param line       The line to search for consecutive groups.
+     * @param groupSize  The size of the consecutive groups to find.
+     * @return           A list of consecutive groups in the line.
+     */
+	public static List<String> findConsecutiveGroupsInLine(String line, int groupSize) {
 	        List<String> groups = new ArrayList<>();
 	        int lineLength = line.length();
 
@@ -65,7 +78,12 @@ public class ConsecutiveGroupAnalyzer {
 
 	        return groups;
 	    }
-	    // check if a substring of length 'groupSize' is consecutive based on ASCII values
+	/**
+     * Checks if a substring of a specified size is consecutive based on ASCII values.
+     *
+     * @param group  The substring to check.
+     * @return       True if the substring is consecutive, false otherwise.
+     */
 	    public static boolean areConsecutiveGroup(String group) {
 	        for (int i = 0; i < group.length()-1; i++) {
 	            int ascii1 = (int) group.charAt(i);
@@ -76,7 +94,12 @@ public class ConsecutiveGroupAnalyzer {
 	        }
 	        return true;
 	    }
-
+/**
+ * Finds the maximum group (with the most occurrences) in a list of groups.
+ *
+ * @param groups  The list of groups to analyze.
+ * @return        The maximum group.
+ */
 	    public static String findMaxGroup(List<String> groups) {
 	        String maxGroup = groups.get(0);
 	        int maxOccur = 1;
@@ -99,7 +122,12 @@ public class ConsecutiveGroupAnalyzer {
 
 	        return maxGroup;
 	    }
-
+/**
+ * Finds the minimum group (with the fewest occurrences) in a list of groups.
+ *
+ * @param groups  The list of groups to analyze.
+ * @return        The minimum group.
+ */
 	    public static String findMinGroup(List<String> groups) {
 	        String minGroup = groups.get(0);
 	        int minOccur = 1;
@@ -124,8 +152,14 @@ public class ConsecutiveGroupAnalyzer {
 	    }
 
 
- // find the median group based on the occurrences
-    public static String findMedianGroup(List<String> groups) {
+/**
+ * Finds the median group based on the occurrences in a list of groups.
+ *
+ * @param groups  The list of groups to analyze.
+ * @return        The median group.
+ * @throws IllegalArgumentException if the list is empty.
+ */
+	public static String findMedianGroup(List<String> groups) {
         int size = groups.size();
         if (size == 0) {
             throw new IllegalArgumentException("List is empty. Cannot find median.");
@@ -136,8 +170,14 @@ public class ConsecutiveGroupAnalyzer {
     }
 
 
-    // find the occurrences of a target group in the list
-    public static int groupOccurrences(List<String> groups, String target) {
+/**
+ * Counts the occurrences of a target group in a list of groups.
+ *
+ * @param groups  The list of groups to analyze.
+ * @param target  The target group to count occurrences of.
+ * @return        The count of occurrences of the target group.
+ */
+	public static int groupOccurrences(List<String> groups, String target) {
         int count = 0;
         for (String group : groups) {
             if (group.equals(target)) {
@@ -147,8 +187,16 @@ public class ConsecutiveGroupAnalyzer {
         return count;
     }
 
-    // check if four characters are consecutive based on ASCII values
-    public static boolean areConsecutive(char char1, char char2, char char3, char char4) {
+/**
+ * Checks if four characters are consecutive based on ASCII values.
+ *
+ * @param char1  The first character.
+ * @param char2  The second character.
+ * @param char3  The third character.
+ * @param char4  The fourth character.
+ * @return       True if the characters are consecutive, false otherwise.
+ */
+	public static boolean areConsecutive(char char1, char char2, char char3, char char4) {
         int ascii1 = (int) char1;
         int ascii2 = (int) char2;
         int ascii3 = (int) char3;
