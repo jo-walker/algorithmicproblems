@@ -78,9 +78,11 @@ class FourCharJsonGroups {
         }
         
         // Iterate over the sorted keys and print them with their counts
-        for (String key : keyList) {
+        for (int i = 0; i < keyList.size(); i++) {
+            String key = keyList.get(i);
             int value = jsonObject.getInt(key);
             System.out.println(key + ": " + value);
         }
+
     }
 }
